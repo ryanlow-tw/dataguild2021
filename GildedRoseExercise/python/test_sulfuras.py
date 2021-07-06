@@ -4,7 +4,7 @@ import unittest
 from gilded_rose import Item, GildedRose
 
 
-class GildedRoseTest(unittest.TestCase):
+class SulfurasTest(unittest.TestCase):
     def test_should_reduce_quality_by_0_when_quality_starts_at_20_and_item_is_sulfuras(self):
         items = [Item("Sulfuras, Hand of Ragnaros", 0, 20)]
         gilded_rose = GildedRose(items)
