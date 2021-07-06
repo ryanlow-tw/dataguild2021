@@ -1,3 +1,7 @@
-# dataguild2021
+#Useful commands:
 
-#test words
+Run all unit test from GildedRoseExercise folder:
+
+```
+python -m unittest discover python
+```
