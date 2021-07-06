@@ -17,7 +17,7 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEquals(0, items[0].quality)
 
-    def test_should_reduce_quality_by_0_when_quality_starts_at__and_item_is_sulfuras(self):
+    def test_should_reduce_quality_by_0_when_quality_starts_at_1_and_item_is_sulfuras(self):
         items = [Item("Sulfuras, Hand of Ragnaros", 0, 1)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
