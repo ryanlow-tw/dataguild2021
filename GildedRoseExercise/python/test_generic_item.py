@@ -4,7 +4,7 @@ import unittest
 from gilded_rose import Item, GildedRose
 
 
-class GildedRoseTest(unittest.TestCase):
+class GenericItemTest(unittest.TestCase):
     def test_should_reduce_quality_by_0_when_quality_starts_at_0_and_item_is_generic_item(self):
         items = [Item("generic_item", 0, 0)]
         gilded_rose = GildedRose(items)
