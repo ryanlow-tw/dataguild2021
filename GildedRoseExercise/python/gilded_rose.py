@@ -28,6 +28,20 @@ class GildedRose(object):
             item.sell_in -= 1
             item.quality = min(item.quality, 50)
             item.quality = max(item.quality, 0)
+    
+    def _update_quality(self,item):
+        if item.name == 'generic_item':
+            item = self._update_generic_item_quality(item)
+        return item
+            
+    def _update_generic_item_quality(self, item):
+        if item.sell_in < 1:
+            item.quality -= 2
+        else:
+            item.quality -= 1
+        return item
+
+
 
 
 class Item:
