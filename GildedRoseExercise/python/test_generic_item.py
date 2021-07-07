@@ -29,8 +29,6 @@ class GenericItemTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEquals(18, items[0].quality)
     
-#TODO: Bug to be fixed - able to create item with more than 50 quality
-#TODO: Bug to be fixed - should not be able to create an item with negative quality  
 #TODO: Bug to be fixed - quality reduction should double when sell in date passed
 
 if __name__ == '__main__':
