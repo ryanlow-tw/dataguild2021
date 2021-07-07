@@ -16,12 +16,14 @@ class GildedRose(object):
             item.quality = max(item.quality, 0)
     
     def _update_quality_handler(self,item):
-        if item.name == 'generic_item':
+        if item.name == 'Generic Item':
             item = self._update_generic_item_quality(item)
         elif item.name == 'Aged Brie':
             item = self._update_aged_brie_quality(item)
         elif item.name == "Backstage passes to a TAFKAL80ETC concert":
             item = self._update_concert_ticket_quality(item)
+        elif item.name == 'Conjured Item':
+            item = self._update_conjured_item_quality(item)
         return item
             
     def _update_generic_item_quality(self, item):
@@ -45,6 +47,14 @@ class GildedRose(object):
         else:
             item.quality += 1
         return item
+
+    def _update_conjured_item_quality(self,item):
+        if item.sell_in < 1:
+            item.quality -= 4
+        else:
+            item.quality -= 2
+        return item
+
 
 
 
