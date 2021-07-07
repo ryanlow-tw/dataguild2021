@@ -9,29 +9,19 @@ class GildedRose(object):
         for item in self.items:
             if item.name == "Sulfuras, Hand of Ragnaros":
                 continue
-            if item.name == 'Backstage passes to a TAFKAL80ETC concert':
-                item.quality += 1
-                if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                    if item.sell_in < 6:
-                        item.quality += 2
-                    elif item.sell_in < 11:
-                        item.quality += 1
-            if item.sell_in < 1:
-                if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                    item.quality = 0
-            if item.name == 'generic_item':
-                item = self._update_quality(item)
-            elif item.name == 'Aged Brie':
-                item = self._update_quality(item)
+            else:
+                item = self._update_quality_handler(item)
             item.sell_in -= 1
             item.quality = min(item.quality, 50)
             item.quality = max(item.quality, 0)
     
-    def _update_quality(self,item):
+    def _update_quality_handler(self,item):
         if item.name == 'generic_item':
             item = self._update_generic_item_quality(item)
         elif item.name == 'Aged Brie':
             item = self._update_aged_brie_quality(item)
+        elif item.name == "Backstage passes to a TAFKAL80ETC concert":
+            item = self._update_concert_ticket_quality(item)
         return item
             
     def _update_generic_item_quality(self, item):
@@ -43,6 +33,17 @@ class GildedRose(object):
     
     def _update_aged_brie_quality(self,item):
         item.quality += 2
+        return item
+
+    def _update_concert_ticket_quality(self,item):
+        if item.sell_in <= 0:
+            item.quality = 0
+        elif item.sell_in <= 5:
+            item.quality += 3
+        elif item.sell_in <= 10:
+            item.quality += 2
+        else:
+            item.quality += 1
         return item
 
 
