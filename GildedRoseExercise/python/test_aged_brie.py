@@ -40,3 +40,6 @@ class AgedBrieTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEquals(50, items[0].quality)
+        
+if __name__ == '__main__':
+    unittest.main()
