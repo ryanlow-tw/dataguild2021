@@ -28,8 +28,6 @@ class GenericItemTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEquals(18, items[0].quality)
-    
-#TODO: Bug to be fixed - quality reduction should double when sell in date passed
 
 if __name__ == '__main__':
     unittest.main()
