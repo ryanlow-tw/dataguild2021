@@ -7,7 +7,7 @@ class GildedRose(object):
         self.items = items
         self.update_item_quality = UpdateItemQuality() 
         self.legendary_items = ['Sulfuras, Hand of Ragnaros']
-        
+
     def update_quality(self):
         for item in self.items:
             if item.name not in self.legendary_items:
@@ -23,8 +23,7 @@ class GildedRose(object):
         else:
             item = self.update_item_quality.update_generic_item_quality(item)
         item.sell_in -= 1
-        item.quality = min(item.quality, 50)
-        item.quality = max(item.quality, 0)
+        item.quality = max(min(item.quality, 50),0)
         return item
         
 
