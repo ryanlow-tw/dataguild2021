@@ -16,9 +16,9 @@ class GildedRose(object):
     def _update_item_quality(self,item):
         if item.name == 'Aged Brie':
             item = self.update_item_quality.update_aged_brie_quality(item)
-        elif item.name == "Backstage passes to a TAFKAL80ETC concert":
+        elif "backstage pass" in item.name.lower():
             item = self.update_item_quality.update_concert_ticket_quality(item)
-        elif item.name == 'Conjured Item':
+        elif "conjured" in item.name.lower():
             item = self.update_item_quality.update_conjured_item_quality(item)
         else:
             item = self.update_item_quality.update_generic_item_quality(item)
