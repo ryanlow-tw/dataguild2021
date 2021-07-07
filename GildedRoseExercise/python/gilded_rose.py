@@ -9,7 +9,6 @@ class GildedRose(object):
         for item in self.items:
             if item.name == "Sulfuras, Hand of Ragnaros":
                 continue
-        
 
             if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert":
                 item.quality -= 1
@@ -24,13 +23,13 @@ class GildedRose(object):
             item.sell_in = item.sell_in - 1
 
             if item.sell_in < 0:
-                if item.name != "Aged Brie":
-                    if item.name != "Backstage passes to a TAFKAL80ETC concert":
-                        item.quality -= 1
-                    else:
-                        item.quality = 0
+                if item.name == "Aged Brie":
+                    item.quality += 1
+                elif item.name == "Backstage passes to a TAFKAL80ETC concert":
+                    item.quality = 0
                 else:
-                    item.quality = item.quality + 1
+                    item.quality -= 1
+
 
             item.quality = min(item.quality, 50)
             item.quality = max(item.quality, 0)
