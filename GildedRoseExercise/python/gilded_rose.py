@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 from update_item_quality import UpdateItemQuality
 
-class GildedRose(object, UpdateItemQuality):
+class GildedRose(object):
 
     def __init__(self, items):
         self.items = items
-
+        self.update_item_quality = UpdateItemQuality() 
+        self.legendary_items = ['Sulfuras, Hand of Ragnaros']
+        
     def update_quality(self):
         for item in self.items:
-            if item.name == "Sulfuras, Hand of Ragnaros":
-                continue
-            else:
-                item = self._update_quality_handler(item)
+            if item.name not in self.legendary_items:
+                item = self._update_item_quality(item)
     
-    def _update_quality_handler(self,item):
-        if item.name == 'Generic Item':
-            item = self._update_generic_item_quality(item)
-        elif item.name == 'Aged Brie':
-            item = self._update_aged_brie_quality(item)
+    def _update_item_quality(self,item):
+        if item.name == 'Aged Brie':
+            item = self.update_item_quality.update_aged_brie_quality(item)
         elif item.name == "Backstage passes to a TAFKAL80ETC concert":
-            item = self._update_concert_ticket_quality(item)
+            item = self.update_item_quality.update_concert_ticket_quality(item)
         elif item.name == 'Conjured Item':
-            item = self._update_conjured_item_quality(item)
+            item = self.update_item_quality.update_conjured_item_quality(item)
+        else:
+            item = self.update_item_quality.update_generic_item_quality(item)
         item.sell_in -= 1
         item.quality = min(item.quality, 50)
         item.quality = max(item.quality, 0)
