@@ -5,7 +5,7 @@ class GildedRose(object):
 
     def __init__(self, items):
         self.items = items
-        self.update_item_quality = UpdateItemQuality() 
+        self.update_item_quality = UpdateItemQuality()
         self.legendary_items = ['Sulfuras, Hand of Ragnaros']
 
     def update_quality(self):
