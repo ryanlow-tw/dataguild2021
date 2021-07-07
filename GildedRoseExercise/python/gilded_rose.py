@@ -25,7 +25,7 @@ class GildedRose(object):
                     item.quality = 0
                 else:
                     item.quality -= 1
-            item.sell_in = item.sell_in - 1
+            item.sell_in -= 1
             item.quality = min(item.quality, 50)
             item.quality = max(item.quality, 0)
 
