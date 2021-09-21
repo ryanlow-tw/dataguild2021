@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
 import unittest
 from item import AgedBrie
 from gilded_rose import GildedRose
 
 
 class AgedBrieTest(unittest.TestCase):
+
     def test_should_increase_quality_by_2_when_quality_starts_at_20_and_item_is_aged_brie(self):
         items = [AgedBrie("Aged Brie", 0, 20)]
         gilded_rose = GildedRose(items)

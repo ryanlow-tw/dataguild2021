@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import unittest
 from item import ConcertTicket
 from gilded_rose import GildedRose

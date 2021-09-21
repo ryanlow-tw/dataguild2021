@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
 import unittest
 from item import GenericItem
 from gilded_rose import GildedRose
 
 
 class GenericItemTest(unittest.TestCase):
+
     def test_should_reduce_quality_by_0_when_quality_starts_at_0_and_item_is_generic_item(self):
         items = [GenericItem("Generic Item", 0, 0)]
         gilded_rose = GildedRose(items)
