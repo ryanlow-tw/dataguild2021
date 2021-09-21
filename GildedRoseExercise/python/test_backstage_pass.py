@@ -77,7 +77,5 @@ class BackstagePassTest(unittest.TestCase):
         gilded_rose.update_quality()
         self.assertEqual(0, items[0].quality)
 
-if __name__ == '__main__':
-    unittest.main()
 
 
