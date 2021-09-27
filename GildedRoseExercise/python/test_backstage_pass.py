@@ -4,11 +4,18 @@ from gilded_rose import GildedRose
 
 
 class BackstagePassTest(unittest.TestCase):
+    def setUp(self):
+        self.backstage_pass_name = "Backstage passes to a TAFKAL80ETC concert"
+        
     def test_should_increase_quality_by_1_when_sell_in_date_is_more_than_10(self):
-        items = [ConcertTicket("Backstage passes to a TAFKAL80ETC concert", sell_in=11, quality=0)]
+        items = [ConcertTicket(self.backstage_pass_name, sell_in=11, quality=0)]
+        
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-        self.assertEqual(1, items[0].quality)
+        
+        expected = 1
+        actual = items[0].quality
+        self.assertEqual(actual, expected)
 
     def test_should_not_increase_quality_when_quality_is_50(self):
         items = [ConcertTicket("Backstage passes to a TAFKAL80ETC concert", 11, 50)]
